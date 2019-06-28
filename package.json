@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpackdev": "webpack -w --mode development --config ./webpack.config.js",
-    "nodemon": "nodemon --exec \"babel-node -r node_modules/dotenv/config\" ./server.js",
+    "webpackdev": "NODE_ENV=dev webpack -w --mode development --config src/client/wpclient.config.js",
+    "nodemon": "nodemon --exec \"babel-node -r node_modules/dotenv/config\" src/server/server.js",
     "dev": "npm run webpackdev& npm run nodemon"
   },
   "author": "",

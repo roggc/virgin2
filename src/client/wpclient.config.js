@@ -1,14 +1,14 @@
-//wbclient.config.js
-
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin= require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
+const dev=process.env.NODE_ENV==='dev'
+
 module.exports =
 {
-  entry:'./index.js',
+  entry:'./src/client/client.js',
   module:
   {
     rules:
@@ -66,10 +66,17 @@ module.exports =
     new HtmlWebpackPlugin
     (
       {
-        template: './index.html'
+        template: './src/assets/index.html'
       }
     ),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new webpack.DefinePlugin
+    (
+      {
+        __dev__:dev,
+        //__api__:'\''+api+'\'',
+      }
+    )
   ],
   resolve:
   {

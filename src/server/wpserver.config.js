@@ -5,7 +5,7 @@ module.exports=
 {
   target: 'node',
   externals: [nodeExternals()],
-  entry:'./server.js',
+  entry:'./src/server/server.js',
   module:
   {
     rules:
